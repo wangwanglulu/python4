@@ -35,10 +35,10 @@
                     <h3>Lists vs. Dictionaries continue</h3>
                     <ul>
                         <li class="fragment">
-                            <p>Lists: in operation, insert(), del (slow)</p>
+                            <p>Lists: in operator, insert(), del (slow)</p>
                         </li>
                         <li class="fragment">
-                            <p>Dictionaries: in operation, get (fast)</p>
+                            <p>Dictionaries: in operator, get, del (fast)</p>
                         </li>
                         <li class="fragment">
                             <p>Hash Function</p>
@@ -622,10 +622,23 @@ for key, val in list(d.items()):
                     </ul>
                     <div class="fragment">
                         <pre><code class="hljs" data-trim contenteditable>
-directory[last,first] = number
+directory = dict()
+directory[('Lu', 'Wang')] = 100
+
+for (last, first) in directory:
+    print((last, first), directory[(last, first)])
+</code></pre>
+                    </div>
+                    <div class="fragment">
+                        <pre><code class="hljs" data-trim contenteditable>
+directory = dict()
+directory['Lu', 'Wang'] = 100
 
 for last, first in directory:
-    print(first, last, directory[last,first])
+    print(last, first, directory[last, first])
+
+for last, first in directory.items():
+    print(last, first)
 </code></pre>
                     </div>
                 </section>
@@ -726,6 +739,52 @@ for last, first in directory:
                         </li>
                     </ul>
                 </section>
+                <section>
+                    <ul>
+                        <li class="fragment">
+                            <p>x=x+[] and x+=[]</p>
+                        </li>
+                    </ul>
+                    <div id="leftc" class="fragment">
+                        <pre><code class="hljs" data-trim contenteditable>
+In [77]: a = [1, 2, 3]
+In [78]: b = a
+In [79]: id(a)
+Out[79]: 4476686208
+In [80]: id(b)
+Out[80]: 4476686208
+In [81]: a = a + [4, 5, 6]
+In [82]: a
+Out[82]: [1, 2, 3, 4, 5, 6]
+In [83]: b
+Out[83]: [1, 2, 3]
+In [84]: id(a)
+Out[84]: 4477187640
+In [85]: id(b)
+Out[85]: 4476686208
+</code></pre>
+                    </div>
+                    <div id="rightc" class="fragment">
+                        <pre><code class="hljs" data-trim contenteditable>
+
+In [68]: a = [1, 2, 3]
+In [69]: b = a
+In [70]: id(a)
+Out[70]: 4477149984
+In [71]: id(b)
+Out[71]: 4477149984
+In [72]: a += [4, 5, 6]
+In [73]: a
+Out[73]: [1, 2, 3, 4, 5, 6]
+In [74]: b
+Out[74]: [1, 2, 3, 4, 5, 6]
+In [75]: id(a)
+Out[75]: 4477149984
+In [76]: id(b)
+Out[76]: 4477149984
+</code></pre>
+                    </div>
+                </section>
             </section>
             <section>
                 <section data-background="#f1c40f" style="color: white">
@@ -735,6 +794,70 @@ for last, first in directory:
                     <div><img data-src="pacman.jpg" style="height: 400pt"></div>
                     <a href="http://www.webpacman.com/">Pac-man game</a>
                     <p>http://www.webpacman.com/</p>
+                </section>
+                <section data-background="#7f8c8d" style="color: white">
+                    <h2 style="color: white">About Problem set 2</h2>
+                </section>
+                <section>
+                    <h3>Nested Loops</h3>
+                    <div class="fragment">
+                        <pre><code class="hljs" data-trim contenteditable>
+for iterating_var in sequence:
+   for iterating_var in sequence:
+      statements(s)
+   statements(s)
+
+while expression:
+   while expression:
+      statement(s)
+   statement(s)
+</code></pre>
+                    </div>
+                    <div class="fragment">
+                        <pre><code class="hljs" data-trim contenteditable>
+x = []
+for i in range(1,6):
+    x.append([])
+    for j in range(1,6):
+        x[i-1].append(1)
+print(x)
+
+[[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]]
+</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <div class="fragment">
+                        <pre><code class="hljs" data-trim contenteditable>
+x = []
+for i in range(1,6):
+    x.append([])
+    for j in range(1,i+1):
+        x[i-1].append(1)
+print(x)
+
+[[1], [1, 1], [1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1, 1]]
+</code></pre>
+                    </div>
+                    <ul>
+                        <li class="fragment">
+                            <p>Prime number</p>
+                        </li>
+                    </ul>
+                    <div class="fragment">
+                        <pre><code class="hljs" data-trim contenteditable>
+i = 2
+while i < 100:
+    j = 2
+    while j <= (i/j):
+        if not i%j : 
+            break
+        j = j + 1
+    if j > i/j: 
+        print(i)
+    i = i + 1
+</code></pre>
+                    </div>
                 </section>
             </section>
             <section>
@@ -946,6 +1069,11 @@ x = addtwo(3, 5)
 print(x)
 </code></pre>
                     </div>
+                    <ul>
+                        <li class="fragment">
+                            <p><b>If we want to return multiple values, the function return a tuple.</b></p>
+                        </li>
+                    </ul>
                 </section>
                 <section>
                     <h3>Return Values</h3>
@@ -1028,8 +1156,8 @@ while True:
     print("\nPlease tell me your name:")
     f_name = input("First name: ")
     l_name = input("Last name: ")
-formatted_name = get_formatted_name(f_name,l_name)
-print("\nHello, " + formatted_name + "!")
+    formatted_name = get_formatted_name(f_name,l_name)
+    print("\nHello, " + formatted_name + "!")
 </code></pre>
                     </div>
                     <div class="fragment">
@@ -1049,1630 +1177,13 @@ while True:
     if l_name == 'q':
         break
 
-formatted_name = get_formatted_name(f_name, l_name)
-print("\nHello, " + formatted_name + "!")
+    formatted_name = get_formatted_name(f_name, l_name)
+    print("\nHello, " + formatted_name + "!")
 </code></pre>
                     </div>
                 </section>
             </section>
-            <section>
-                <section data-background="#2980b9" style="color: white">
-                    <h2 style="color: white">4.4 Functions (2)</h2>
-                </section>
-                <section>
-                    <h3>Passing a list</h3>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def greet_users(names):
-    for name in names:
-        msg = "Hello, " + name.title() + "!"
-        print(msg)
-
-usernames = ['hannah', 'ty', 'margot']
-greet_users(usernames)
-
-Hello, Hannah!
-Hello, Ty!
-Hello, Margot!
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Modifying a List in a Function</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-unprinted_designs = ['iphone case', 'robot pendant', 'dodecahedron']
-completed_models = []
-
-while unprinted_designs:
-    current_design = unprinted_designs.pop()
-    print("Printing model: " + current_design)
-    completed_models.append(current_design)
-
-print("\nThe following models have been printed:")
-for completed_model in completed_models:
-    print(completed_model)
-
-Printing model: dodecahedron
-Printing model: robot pendant
-Printing model: iphone case
-
-The following models have been printed:
-dodecahedron
-robot pendant
-iphone case
-
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Defining two functions</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def print_models(unprinted_designs, completed_models):
-    while unprinted_designs:
-        current_design = unprinted_designs.pop()
-        print("Printing model: " + current_design)
-        completed_models.append(current_design)
-
-def show_completed_models(completed_models):
-    print("\nThe following models have been printed:")
-    for completed_model in completed_models:
-        print(completed_model)
-
-unprinted_designs = ['iphone case', 'robot pendant', 'dodecahedron']
-completed_models = []
-
-print_models(unprinted_designs, completed_models)
-show_completed_models(completed_models)
-
-Printing model: dodecahedron
-Printing model: robot pendant
-Printing model: iphone case
-
-The following models have been printed:
-dodecahedron
-robot pendant
-iphone case
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Preventing a Function from Modifying a List</p>
-                        </li>
-                        <li class="fragment">
-                            <p>Create a copy of the list</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-function_name(list_name[:])
-
-print_models(unprinted_designs[:], completed_models)
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Passing an Arbitrary Number of Arguments</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def make_pizza(*toppings):
-    print(toppings)
-
-make_pizza('pepperoni')
-make_pizza('mushrooms', 'green peppers', 'extra cheese')
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p>Note that Python packs the arguments into a tuple, even if the function receives only one value.</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def make_pizza(*toppings):
-    print("\nMaking a pizza with the following toppings:")
-    for topping in toppings:
-        print("- " + topping)
-
-make_pizza('pepperoni')
-make_pizza('mushrooms', 'green peppers', 'extra cheese')
-
-Making a pizza with the following toppings:
-- pepperoni
-Making a pizza with the following toppings:
-- mushrooms
-- green peppers
-- extra cheese
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Mixing Positional and Arbitrary Arguments</p>
-                        </li>
-                        <li class="fragment">
-                            <p>If you want a function to accept several different kinds of arguments, the parameter that accepts an arbitrary number of arguments must be placed last in the function definition.</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def make_pizza(size, *toppings):
-    print("\nMaking a " + str(size) +
-        "-inch pizza with the following toppings:")
-    for topping in toppings:
-        print("- " + topping)
-
-make_pizza(16, 'pepperoni')
-make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
-
-Making a 16-inch pizza with the following toppings:
-- pepperoni
-
-Making a 12-inch pizza with the following toppings:
-- mushrooms
-- green peppers
-- extra cheese
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Using Arbitrary Keyword Arguments</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def build_profile(first, last, **user_info):
-    profile = {}
-    profile['first_name'] = first
-    profile['last_name'] = last
-    for key, value in user_info.items():
-        profile[key] = value
-    return profile
-
-user_profile = build_profile('albert', 'einstein',
-                            location='princeton',
-                            field='physics')
-print(user_profile)
-
-{'first_name': 'albert', 'last_name': 'einstein',
-'location': 'princeton', 'field': 'physics'}
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">Example</li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def test(x,y=1,*a,**b):
-    print(x,y,a,b)
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-test(1)
-test(1,2)
-test(1,2,3)
-test(1,2,3,4)
-test(x=1,y=2)
-test(1,a=2)
-test(1,2,3,a=4)
-test(1,2,3,y=4)
-</code></pre>
-                    </div>
-                </section>
-            </section>
-            <section>
-                <section data-background="#2980b9" style="color: white">
-                    <h2 style="color: white">4.5 Functions (3)</h2>
-                    <p>mutable vs. immutable, lambda function, variable scope</p>
-                </section>
-                <section>
-                    <h3>mutable vs. immutable</h3>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def ChangeInt( a ):
-    a = 10
-
-b = 2
-ChangeInt(b)
-print( b )
-
-2
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def ChangeInt( a ):
-    a = 10
-    print(a)
-
-b = 2
-ChangeInt(b)
-print( b ) 
-print(ChangeInt(b))
-
-10
-2
-10
-None
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def ChangeInt( a ):
-    a = 10
-    print(a)
-    return a
-
-b = 2
-ChangeInt(b)
-print( b ) 
-print(ChangeInt(b))
-
-10
-2
-10
-10
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def ChangeInt( a ):
-    a = 10
-    print(a)
-    return b
-
-b = 2
-ChangeInt(b)
-print( b ) 
-print(ChangeInt(b))
-
-10
-2
-10
-2
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def changeme( mylist ):
-   mylist.append([1,2,3,4]);
-   print ("fun1: ", mylist)
-   return
- 
-mylist = [10,20,30];
-changeme( mylist );
-print ("fun2: ", mylist)
-
-fun1:  [10, 20, 30, [1, 2, 3, 4]]
-fun2:  [10, 20, 30, [1, 2, 3, 4]]
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <h3>Anonymous function: lambda</h3>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def add( x, y ):
-    return x + y
- 
-lambda x, y: x + y
- 
-lambda x, y = 2: x + y
-lambda *z: z
- 
->>> a = lambda x, y: x + y
->>> a( 1, 3 )
-4
->>> b = lambda x, y = 2: x + y
->>> b( 1 )
-3
->>> b( 1, 3 )
-4
->>> c = lambda *z: z
->>> c( 10, 'test')
-(10, 'test')
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Sometimes the anonymous function is convenient.</p>
-                        </li>
-                        <li class="fragment">
-                            <p>It has only one expression. (You do not have to use <b>return</b>)</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-sum = lambda arg1, arg2: arg1 + arg2
-
-print ("The total is : ", sum( 10, 20 ))
-print ("The total is : ", sum( 20, 20 ))
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
->>> list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
-[1, 4, 9, 16, 25, 36, 49, 64, 81]
-
-def f(x):
-    return x * x
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <h3>Variable Scope</h3>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-x = int(2.9)  # Build-in
- 
-g_count = 0  # Global
-def outer():
-    o_count = 1  # Enclosing
-    def inner():
-        i_count = 2  # Local
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p>Local$\rightarrow$Enclosing$\rightarrow$Global$\rightarrow$ Build-in</p>
-                        </li>
-                        <li class="fragment">
-                            <p>In Python, module, class, def, lambda can introduce new variable scope, if/elif/else/, try/except, for/while will not introduce new variable scope.</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-if True:
-    msg = 'I am from Runoob'
-print(msg) # We can use msg.
-
-I am from Runoob
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def test():
-    msg_inner = 'I am from Runoob'
-print(msg_inner) # error
-
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Local vs. Global (immutable)</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-total = 0; # This is a global variable. 
-
-def sum( arg1, arg2 ):
-    total = arg1 + arg2; # total is a local variable.
-    print ("Local variable: ", total)
-    return total;
-
-sum( 10, 20 );
-print ("Global variable : ", total)
-Local variable:  30
-Global variable :  0
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p>The <b>global</b> and <b>nonlocal</b> keywords</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-num = 1
-def fun1():
-    global num  # global keyword
-    print(num) 
-    num = 123
-    print(num)
-fun1()
-
-1
-123
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def outer():
-    num = 10
-    def inner():
-        nonlocal num   # nonlocal keyword
-        num = 100
-        print(num)
-    inner()
-    print(num)
-outer()
-
-100
-100
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def outer():
-    num = 10
-    def inner():
-        global num  # global does not work
-        num = 100
-        print(num)
-    inner()
-    print(num)
-outer()
-
-100 
-10
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def outer():
-    global num
-    num = 10
-    def inner():
-        global num   
-        num = 100
-        print(num)
-    inner()
-    print(num)
-outer()
-
-100
-100
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def outer():
-    global num
-    num = 10
-    def inner():  
-        num = 100
-        print(num)
-    inner()
-    print(num)
-outer()
-
-100
-10
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-num = 3                            
-def outer():
-    global num
-    num = 10
-    def inner():  
-        num = 100
-        print(num)
-    inner()
-    print(num)
-outer()
-print(num)
-
-100
-10
-10
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-num = 3                            
-def outer():
-    num = 10
-    def inner(): 
-        global num 
-        num = 100
-        print(num)
-    inner()
-    print(num)
-outer()
-print(num)
-
-100
-10
-100
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-num = 3                            
-def outer():
-    num = 10
-    def inner(): 
-        nonlocal num 
-        num = 100
-        print(num)
-    inner()
-    print(num)
-outer()
-print(num)
-
-100
-100
-3
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-num = 3                            
-def outer():
-    global num
-    num = 10
-    def inner(): 
-        global num 
-        num = 100
-        print(num)
-    inner()
-    print(num)
-outer()
-print(num)
-
-100
-100
-100
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-a = 10
-def test():
-    a = a + 1
-    print(a)
-test()
-
-Traceback (most recent call last):
-  File "test.py", line 5, in <module>
-    test()
-  File "test.py", line 3, in test
-    a = a + 1
-UnboundLocalError: local variable 'a' referenced before assignment
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-a = 10
-def test():
-    global a
-    a = a + 1
-    print(a)
-test()
-print(a)
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <h3>Example</h3>
-                    <div id="leftc" class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-
-if 1 == 1:
-    name = "lzl"
-print(name)
-
-for i in range(10):
-    age = i
-print(age)
-</code></pre>
-                    </div>
-                    <div id="leftc" class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def  func():
-    name = "lzl"
-print(name)
-</code></pre>
-                    </div>
-                    <div id="leftc" class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def  func():
-    name = "lzl"
-func()          
-print(name)
-</code></pre>
-                    </div>
-                    <div id="rightc" class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-name = "lzl"
-def f1():
-    name = "Eric"
-    def f2():
-        name = "Snor"
-        print(name)
-    f2()
-f1()
-</code></pre>
-                    </div>
-                    <div id="rightc" class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-name = "lzl"
-def f1():
-    name = "Eric"
-    def f2():
-        print(name)
-    f2()
-f1()
-</code></pre>
-                    </div>
-                </section>
-            </section>
-            <section>
-                <section data-background="#2980b9" style="color: white">
-                    <h2 style="color: white">4.6 Functions (4)</h2>
-                    <p>Return a function, Recursion Intro</p>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">Return a function</li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def calc_sum(*args):
-    ax = 0
-    for n in args:
-        ax = ax + n
-    return ax
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def lazy_sum(*args):
-    def sum():
-        ax = 0
-        for n in args:
-            ax = ax + n
-        return ax
-    return sum
-
-f = lazy_sum(1, 3, 5, 7, 9)
-print(f()) # print(f) causes error
-print(type(f)) #Even if you delete lazy_sum, f still exists.
-
-25
-function
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
->>> f1 = lazy_sum(1, 3, 5, 7, 9)
->>> f2 = lazy_sum(1, 3, 5, 7, 9)
->>> f1==f2
-False
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Defining a closure function</p>
-                        </li>
-                        <li class="fragment">
-                            <p>When do we have a closure?</p>
-                            <ul>
-                                <li class="fragment">
-                                    <p>We must have a nested function (function inside a function).</p>
-                                </li>
-                                <li class="fragment">
-                                    <p>The nested function must refer to a value defined in the enclosing function.</p>
-                                </li>
-                                <li class="fragment">
-                                    <p>The enclosing function must return the nested function.</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="fragment">
-                            <p>When to use closures?</p>
-                            <ul>
-                                <li class="fragment">
-                                    <p>Closures can avoid the use of global values and provides some form of data hiding. It can also provide an object oriented solution to the problem.</p>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Example</h3>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def print_msg():
-    msg = "zen of python"
-    def printer():
-        return msg
-    return printer
-
-another = print_msg()
-print(another())
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def make_multiplier_of(n):
-    def multiplier(x):
-        return x * n
-    return multiplier
-
-# Multiplier of 3
-times3 = make_multiplier_of(3)
-
-# Multiplier of 5
-times5 = make_multiplier_of(5)
-
-# Output: 27
-print(times3(9))
-
-# Output: 15
-print(times5(3))
-
-# Output: 30
-print(times5(times3(2)))
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <p>Late binding of closures</p>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def count():
-    fs = []
-    for i in range(1, 4):
-        def f():
-             return i*i
-        fs.append(f)
-    return fs
-f1, f2, f3 = count()
-print(f1(), f2(), f3())
-9 9 9
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def count():
-    fs = []
-    for i in range(1, 4):
-        def f(j=i):
-             return j*j
-        fs.append(f)
-    return fs
-f1, f2, f3 = count()
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def count():
-    def f(j):
-        def g():
-            return j*j
-        return g
-    fs = []
-    for i in range(1, 4):
-        fs.append(f(i)) # f(i) is executed immediately
-    return fs
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def create_adders():
-    adders = []
-    for i in range(10):
-        def adder(x):
-            return i + x
-        adders.append(adder)
-    return adders
-
-for adder in create_adders():
-    print(adder(1))
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def create_adders():
-    adders = []
-    for i in range(10):
-        def adder(x, j=i):
-            return j + x
-        adders.append(adder)
-    return adders
-
-for adder in create_adders():
-    print(adder(1))
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p><b>The function you want to return should not cite the variable that will change at a later time (in a loop).</b></p>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Recursion Intro</h3>
-                    <ul>
-                        <li class="fragment">
-                            <p>Calculate: Factorial $n!$</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def fact(n):
-    if n==1:
-        return 1
-    return n * fact(n - 1)
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-===> fact(5)
-===> 5 * fact(4)
-===> 5 * (4 * fact(3))
-===> 5 * (4 * (3 * fact(2)))
-===> 5 * (4 * (3 * (2 * fact(1))))
-===> 5 * (4 * (3 * (2 * 1)))
-===> 5 * (4 * (3 * 2))
-===> 5 * (4 * 6)
-===> 5 * 24
-===> 120
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def fact(n):
-    if n==1:
-        return 1
-    return n * fact(n - 1)
-fact(1000) #Stack overflow
-
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p>Tail Recursion</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def fact(n):
-    return fact_iter(n, 1)
-
-def fact_iter(num, product):
-    if num == 1:
-        return product
-    return fact_iter(num - 1, num * product)
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-===> fact_iter(5, 1)
-===> fact_iter(4, 5)
-===> fact_iter(3, 20)
-===> fact_iter(2, 60)
-===> fact_iter(1, 120)
-===> 120
-</code></pre>
-                    </div>
-                </section>
-            </section>
-            <section>
-                <section data-background="#2980b9" style="color: white">
-                    <h2 style="color: white">4.7 Modules</h2>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Module is a Python file, followed with .py</p>
-                        </li>
-                        <li class="fragment">
-                            <p>Storing Your Functions in Modules</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def make_pizza(size, *toppings):
-    print("\nMaking a " + str(size) +
-        "-inch pizza with the following toppings:")
-    for topping in toppings:
-        print("- " + topping)
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p>It is saved as "pizza.py" file.</p>
-                        </li>
-                        <li class="fragment">
-                            <p>We make a separate file called making_pizzas.py in the same directory as pizza.py.</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-import pizza
-
-pizza.make_pizza(16, 'pepperoni')
-pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Importing Specific Functions</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-from module_name import function_name
-
-from module_name import function_0, function_1, function_2
-
-from pizza import make_pizza
-make_pizza(16, 'pepperoni')
-make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Using as to Give a Function an Alias</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-from pizza import make_pizza as mp
-mp(16, 'pepperoni')
-mp(12, 'mushrooms', 'green peppers', 'extra cheese')
-
-from module_name import function_name as fn
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p>Using as to Give a Module an Alias</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-import pizza as p
-p.make_pizza(16, 'pepperoni')
-p.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
-
-import module_name as mn
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Importing All Functions in a Module</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-from pizza import *
-make_pizza(16, 'pepperoni')
-make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
-
-from module_name import *
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p>The asterisk in the import statement tells Python to copy every function from the module pizza into this program file. Because every function is imported, you can call each function by name without using the dot notation.
-                            </p>
-                        </li>
-                        <li class="fragment">
-                            <p>However, it’s best not to use this approach when you’re working with larger modules that you didn’t write: if the module has a function name that matches an existing name in your project, you can get some unexpected results.
-                            </p>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Search for Modules</h3>
-                    <ul>
-                        <li class="fragment">
-                            <p>When a module named is imported, the interpreter first searches for a built-in module with that name. If not found, it then searches for a file named xxx.py in a list of directories given by the variable sys.path. sys.path is initialized from these locations:</p>
-                        </li>
-                        <li class="fragment">
-                            <p>The directory containing the input script (or the current directory when no file is specified).</p>
-                        </li>
-                        <li class="fragment">
-                            <p>PYTHONPATH (a list of directory names, with the same syntax as the shell variable PATH).</p>
-                        </li>
-                        <li class="fragment">
-                            <p>The installation-dependent default.</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-import sys
-print(sys.path)
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <h3>Packages</h3>
-                    <ul>
-                        <li class="fragment">
-                            <p>Packages are namespaces which contain multiple packages and modules themselves. They are simply directories, but with a twist.</p>
-                        </li>
-                        <li class="fragment">
-                            <p>Each package in Python is a directory which <b>MUST</b> contain a special file called <b>__init__.py</b>. This file can be empty, and it indicates that the directory it contains is a Python package, so it can be imported the same way a module can be imported.</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-mycompany
-├─ __init__.py
-├─ abc.py
-└─ xyz.py
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p>The name of modules are mycompany.abc and mycompany.xyz</p>
-                        </li>
-                        <li class="fragment">
-                            <p><b>Be careful! The name of modules you created should not be in conflict with the name of any system module, or any build-in function.</b></p>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Private functions in modules, _xxx, __xxx</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def _private_1(name):
-    return 'Hello, %s' % name
-
-def _private_2(name):
-    return 'Hi, %s' % name
-
-def greeting(name):
-    if len(name) > 3:
-        return _private_1(name)
-    else:
-        return _private_2(name)
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p><b>You can use those functions, but you would better not use.</b></p>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Third party modules</h3>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-import urllib
-dir(urllib)
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-pip install pillow
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p>Change file name D:\Anaconda\Scripts, pip.exe and pip-script.exe to <b>condapip.exe</b> and <b>condapip-script.exe</b></p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-conda list
-condapip install itchat
-</code></pre>
-                    </div>
-                </section>
-            </section>
-            <section>
-                <section data-background="#2980b9" style="color: white">
-                    <h2 style="color: white">4.8 More about Function</h2>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Four ways of creating a list</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def test1():
-    l = []
-    for i in range(100):
-    l = l + [i]
-
-def test2():
-    l = []
-    for i in range(100):
-        l.append(i)
-
-def test3():
-    l = list(range(100))
-
-def test4():
-    l = [i for in in range(100)]
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
->>> [x * x for x in range(1, 11)]
-[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-
->>> [x * x for x in range(1, 11) if x % 2 == 0]
-[4, 16, 36, 64, 100]
-
->>> [m + n for m in 'ABC' for n in 'XYZ']
-['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']
-
->>> d = {'x': 'A', 'y': 'B', 'z': 'C' }
->>> [k + '=' + v for k, v in d.items()]
-['y=B', 'x=A', 'z=C']
-
->>> L = ['Hello', 'World', 'IBM', 'Apple']
->>> [s.lower() for s in L]
-['hello', 'world', 'ibm', 'apple']
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Generator</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
->>> L = [x * x for x in range(4)]
->>> L
-[0, 1, 4, 9]
->>> g = (x * x for x in range(10))
->>> g
-<generator object <genexpr> at 0x1022ef630>
-
->>> next(g)
-0
->>> next(g)
-1
->>> next(g)
-4
->>> next(g)
-9
->>> next(g)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-StopIteration
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-g = (x * x for x in range(10))
-for n in g:
-    print(n)
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def yrange(n):
-    i = 0
-    while i < n:
-        yield i
-        i += 1 # i=i+1
-
-for x in yrange(6):
-    print(x)
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>map()</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def f(x):
-    return x * x
-
-y = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])    
-print(type(y))
-print(list(y))
-
-map
-[1, 4, 9, 16, 25, 36, 49, 64, 81]
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-print(list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9])))
-['1', '2', '3', '4', '5', '6', '7', '8', '9']
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>reduce()</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4) # It receives two arguments. 
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-from functools import reduce
-def add(x, y):
-    return x + y
-
-print(reduce(add, [1, 3, 5, 7, 9]))
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>filter()</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def is_odd(n):
-    return n % 2 == 1
-
-print(list(filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15])))
-
-[1, 5, 9, 15]
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def not_empty(s):
-    return s and s.strip()
-
-print(list(filter(not_empty, ['A', '', 'B', None, 'C', '  '])))
-
-['A', 'B', 'C']
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Decorator Basics</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def shout(word="yes"):
-    return word.capitalize()+"!"
-
-print(shout())
-# outputs : 'Yes!'
-# As an object, you can assign the function to a variable like any other object 
-scream = shout
-# Notice we don't use parentheses: we are not calling the function,
-# we are putting the function "shout" into the variable "scream".
-# It means you can then call "shout" from "scream":
-print(scream())
-# outputs : 'Yes!'
-# More than that, it means you can remove the old name 'shout',
-# and the function will still be accessible from 'scream'
-del shout
-print(scream())
-# outputs: 'Yes!'
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def talk():
-    # You can define a function on the fly in "talk" ...
-    def whisper(word="yes"):
-        return word.lower()+"..."
-    # ... and use it right away!
-    print(whisper())
-
-# You call "talk", that defines "whisper" EVERY TIME you call it, then
-# "whisper" is called in "talk". 
-talk()
-# outputs: 
-# "yes..."
-# But "whisper" DOES NOT EXIST outside "talk":
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def getTalk(kind="shout"):
-    # We define functions on the fly
-    def shout(word="yes"):
-        return word.capitalize()+"!"
-
-    def whisper(word="yes") :
-        return word.lower()+"...";
-    # Then we return one of them
-    if kind == "shout":
-        return shout  
-    else:
-        return whisper
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-# Get the function and assign it to a variable
-talk = getTalk()      
-# You can see that "talk" is here a function object:
-print(type(talk))
-#outputs : function
-print(talk())
-#outputs : Yes!
-print(getTalk("whisper")())
-#outputs : yes...
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li>
-                            <p>decorators are “wrappers”, which means that they let you execute code before and after the function they decorate without modifying the function itself.</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-# A decorator is a function that expects ANOTHER function as parameter
-def my_shiny_new_decorator(a_function_to_decorate):
-    def the_wrapper_around_the_original_function():
-        print("Before the function runs")
-
-        a_function_to_decorate()
-
-        print("After the function runs")
-
-    return the_wrapper_around_the_original_function
-
-def a_stand_alone_function():
-    print("I am a stand alone function, don't you dare modify me")
-
-a_stand_alone_function() 
-#outputs: 
-I am a stand alone function, don't you dare modify me
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-a_stand_alone_function_decorated = my_shiny_new_decorator(a_stand_alone_function)
-a_stand_alone_function_decorated()
-#outputs:
-
-Before the function runs
-I am a stand alone function, don't you dare modify me
-After the function runs
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-@my_shiny_new_decorator
-def another_stand_alone_function():
-    print("Leave me alone")
-
-another_stand_alone_function()  
-#outputs:  
-Before the function runs
-Leave me alone
-After the function runs
-
-# @decorator is just a shortcut to: 
-# another_stand_alone_function = my_shiny_new_decorator(another_stand_alone_function)
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def bread(func):
-    def wrapper():
-        print("</''''''\>")
-        func()
-        print("<\______/>")
-    return wrapper
-
-def ingredients(func):
-    def wrapper():
-        print("#tomatoes#")
-        func()
-        print("~salad~")
-    return wrapper
-
-def sandwich(food="--ham--"):
-    print(food)
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-sandwich()
-#outputs: --ham--
-sandwich = bread(ingredients(sandwich))
-sandwich()
-#outputs:
-</''''''\>
- #tomatoes#
- --ham--
- ~salad~
-<\______/>
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-@bread
-@ingredients # The order matters here.
-def sandwich(food="--ham--"):
-    print(food)
-
-sandwich()
-#outputs:
-</''''''\>
- #tomatoes#
- --ham--
- ~salad~
-<\______/>
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>Taking decorators to the next level</p>
-                        </li>
-                        <li class="fragment">
-                            <p>Passing arguments to the decorated function</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def a_decorator_passing_arguments(function_to_decorate):
-    def a_wrapper_accepting_arguments(arg1, arg2):
-        print("I got args! Look: %s, %s" % (arg1, arg2))
-        function_to_decorate(arg1, arg2)
-    return a_wrapper_accepting_arguments
-
-@a_decorator_passing_arguments
-def print_full_name(first_name, last_name):
-    print("My name is %s, %s" % (first_name, last_name))
-
-print_full_name("Peter", "Venkman")
-# outputs:
-I got args! Look: Peter Venkman
-My name is Peter Venkman
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <ul>
-                        <li class="fragment">
-                            <p>If you’re making general-purpose decorator--one you’ll apply to any function or method, no matter its arguments--then just use *args, **kwargs:</p>
-                        </li>
-                    </ul>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-def a_decorator_passing_arbitrary_arguments(function_to_decorate):
-    # The wrapper accepts any arguments
-    def a_wrapper_accepting_arbitrary_arguments(*args, **kwargs):
-        print("Do I have args?:")
-        print(args)
-        print(kwargs)
-        function_to_decorate(*args, **kwargs)
-    return a_wrapper_accepting_arbitrary_arguments
-
-@a_decorator_passing_arbitrary_arguments
-def function_with_no_argument():
-    print("Python is cool, no argument here.")
-
-function_with_no_argument()
-#outputs
-Do I have args?:
-()
-{}
-Python is cool, no argument here.
-</code></pre>
-                    </div>
-                </section>
-                <section>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-@a_decorator_passing_arbitrary_arguments
-def function_with_arguments(a, b, c):
-    print(a, b, c)
-
-function_with_arguments(1,2,3)
-#outputs
-#Do I have args?:
-(1, 2, 3)
-{}
-1 2 3 
-</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
-@a_decorator_passing_arbitrary_arguments
-def function_with_named_arguments(a, b, c, platypus="Why not ?"):
-    print("Do {0}, {1} and {2} like platypus? {3}".format(a, b, c, platypus))
-
-function_with_named_arguments("Bill", "Linus", "Steve", platypus="Indeed!")
-#outputs
-Do I have args ? :
-('Bill', 'Linus', 'Steve')
-{'platypus': 'Indeed!'}
-Do Bill, Linus and Steve like platypus? Indeed! 
-</code></pre>
-                    </div>
-                    <ul>
-                        <li class="fragment">
-                            <p><a href="https://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators/1594484#1594484">Decorator Basics</a></p>
-                        </li>
-                    </ul>
-                </section>
-            </section>
+            
             <section>
                 <section data-background="#2c3e50" style="color: white; text-align: left;">
                     <h2 style="color: white">Summary</h2>
@@ -2680,7 +1191,7 @@ Do Bill, Linus and Steve like platypus? Indeed!
                         <li>Functions</li>
                         <ul>
                             <li>Reading: Chapter 10.1-10.5, 10.7-10.8</li>
-                            <li>Reading: Python Crash Course, Chapter 8</li>
+                            <li>Reading: Python Crash Course, Chapter 8.1-8.3</li>
                             <li>Homework: Problem set 2</li>
                         </ul>
                     </ul>
