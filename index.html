@@ -55,7 +55,7 @@
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
 >>> vals = list(eng2sp.values())
 >>> 'uno' in vals
@@ -72,7 +72,7 @@ True
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 word = 'brontosaurus'
 d = dict()
 for c in word:
@@ -93,7 +93,7 @@ print(d)
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> counts = { 'chuck' : 1 , 'annie' : 42, 'jan': 100}
 >>> print(counts.get('jan', 0)) #0 is the default value
 100
@@ -107,7 +107,7 @@ print(d)
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 word = 'brontosaurus'
 d = dict()
 for c in word:
@@ -123,7 +123,7 @@ print(d)
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 counts = { 'chuck' : 1 , 'annie' : 42, 'jan': 100}
 for key in counts: #You can use keys() to make it clear.
     print(key, counts[key])
@@ -134,7 +134,7 @@ annie 42
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 counts = { 'chuck' : 1 , 'annie' : 42, 'jan': 100}
 for key in counts:
     if counts[key] > 10 :
@@ -145,7 +145,7 @@ annie 42
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 counts = { 'chuck' : 1 , 'annie' : 42, 'jan': 100}
 for key in counts:
     if counts[key] > 10 :
@@ -162,7 +162,7 @@ jan 100annie 42
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 counts = { 'chuck' : 1 , 'annie' : 42, 'jan': 100}
 lst = list(counts.keys())
 print(lst)
@@ -188,7 +188,7 @@ jan 100
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 alien_0 = {'color': 'green', 'points': 5}
 alien_1 = {'color': 'yellow', 'points': 10}
 alien_2 = {'color': 'red', 'points': 15}
@@ -211,7 +211,7 @@ for alien in aliens:
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 # Make an empty list for storing aliens.
 aliens = []
 # Make 30 green aliens.
@@ -242,7 +242,7 @@ Total number of aliens: 30
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 aliens = [] # Make an empty list for storing aliens.
 
 for alien_number in range (0,30): # Make 30 green aliens.
@@ -273,7 +273,7 @@ for alien in aliens[0:5]:  # Show the first 5 aliens:
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 pizza = {
     'crust': 'thick',
     'toppings': ['mushrooms', 'extra cheese'],
@@ -298,7 +298,7 @@ You ordered a thick-crust pizza with the following toppings:
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 favorite_languages = {
     'jen': ['python', 'ruby'],
     'sarah': ['c'],
@@ -335,7 +335,7 @@ Phil's favorite languages are:
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 users = {
     'aeinstein': {
         'first': 'albert',
@@ -399,12 +399,12 @@ Username: mcurie
                         <li class="fragment">The important difference is that tuples are immutable.</li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> t = ('a', 'b', 'c', 'd', 'e')
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> t = tuple() #Empty is False
 >>> print(t)
 () 
@@ -416,7 +416,7 @@ Username: mcurie
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> t1 = ('a',)
 >>> type(t1)
 tuple
@@ -434,7 +434,7 @@ str
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> t = ('a', 'b', 'c', 'd', 'e')
 >>> print(t[0])
 'a'
@@ -453,7 +453,7 @@ TypeError: object doesn't support item assignment
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> t = ('A',) + t[1:]
 >>> print(t)
 ('A', 'b', 'c', 'd', 'e')
@@ -463,7 +463,7 @@ TypeError: object doesn't support item assignment
                 <section>
                     <p>Look at this!</p>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> t = ('a', 'b', ['A', 'B'])
 >>> t[2][0] = 'X'
 >>> t[2][1] = 'Y'
@@ -472,7 +472,7 @@ TypeError: object doesn't support item assignment
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> t = ('a', 'b', ('A', 'B'))
 >>> t[2][0] = 'X'
 Traceback (most recent call last):
@@ -487,7 +487,7 @@ TypeError: 'tuple' object does not support item assignment
                         <li class="fragment">Comparing tuples</li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> (0, 1, 2) < (0, 3, 4)
 True
 >>> (0, 1, 2000000) < (0, 3, 4)
@@ -498,7 +498,7 @@ True
                         <li class="fragment">Sorting tuples</li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> t=[(2, 4), (0, 1, 2), (0, 3, 4)]
 >>> t.sort()
 >>> print(t)
@@ -507,7 +507,7 @@ True
                 </section>
                 <section>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 txt = 'but soft what light in yonder window breaks'
 words = txt.split()
 t = list()
@@ -519,7 +519,7 @@ print(t)
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 t.sort(reverse=True)
 res = list()
 for length, word in t: #double element iteration
@@ -535,7 +535,7 @@ print(res)
                         <li class="fragment">Tuple assignment</li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> m = [ 'have', 'fun' ]
 >>> x, y = m
 >>> x
@@ -545,7 +545,7 @@ print(res)
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> m = [ 'have', 'fun' ]
 >>> x, y = m
 >>> x
@@ -555,7 +555,7 @@ print(res)
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> m = [ 'have', 'fun' ]
 >>> (x, y) = m
 >>> x
@@ -574,7 +574,7 @@ print(res)
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> d = {'a':10, 'b':1, 'c':22}
 >>> t = list(d.items())
 >>> t
@@ -590,7 +590,7 @@ print(res)
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 for key, val in list(d.items()):
     print(val, key)
 
@@ -602,7 +602,7 @@ for key, val in list(d.items()):
                 </section>
                 <section>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> d = {'a':10, 'b':1, 'c':22}
 >>> l = list()
 >>> for key, val in d.items() :
@@ -621,7 +621,7 @@ for key, val in list(d.items()):
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 directory = dict()
 directory[('Lu', 'Wang')] = 100
 
@@ -630,7 +630,7 @@ for (last, first) in directory:
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 directory = dict()
 directory['Lu', 'Wang'] = 100
 
@@ -668,7 +668,7 @@ for last, first in directory.items():
                 <section>
                     <h3>Mutable and Immutable</h3>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> a = ['c', 'b', 'a']
 >>> a.sort()
 >>> a
@@ -676,7 +676,7 @@ for last, first in directory.items():
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> a = 'abc'
 >>> a.title() #it creates a new object
 'Abc'
@@ -690,7 +690,7 @@ for last, first in directory.items():
                 </section>
                 <section>
                     <div id="leftc" class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> x = 1  #numbers are immutable
 >>> id(x)  
 31106520  
@@ -713,7 +713,7 @@ for last, first in directory.items():
 </code></pre>
                     </div>
                     <div id="rightc" class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> a = [1, 2, 3]  
 >>> id(a)  
 41568816  
@@ -746,7 +746,7 @@ for last, first in directory.items():
                         </li>
                     </ul>
                     <div id="leftc" class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 In [77]: a = [1, 2, 3]
 In [78]: b = a
 In [79]: id(a)
@@ -765,7 +765,7 @@ Out[85]: 4476686208
 </code></pre>
                     </div>
                     <div id="rightc" class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 
 In [68]: a = [1, 2, 3]
 In [69]: b = a
@@ -801,7 +801,7 @@ Out[76]: 4477149984
                 <section>
                     <h3>Nested Loops</h3>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 for iterating_var in sequence:
    for iterating_var in sequence:
       statements(s)
@@ -814,7 +814,7 @@ while expression:
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 x = []
 for i in range(1,6):
     x.append([])
@@ -828,7 +828,7 @@ print(x)
                 </section>
                 <section>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 x = []
 for i in range(1,6):
     x.append([])
@@ -845,7 +845,7 @@ print(x)
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 i = 2
 while i < 100:
     j = 2
@@ -873,7 +873,7 @@ while i < 100:
                             <p>A function call</p>
                         </li>
                         <div class="fragment">
-                            <pre><code class="hljs" data-trim contenteditable>
+                            <pre><code class="line-numbers" data-trim contenteditable>
 >>> type(32)
 </code></pre>
                         </div>
@@ -886,7 +886,7 @@ while i < 100:
                 <section>
                     <h3>Defining a function</h3>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def print_lyrics():
     print("I'm a lumberjack, and I'm okay.")
     print('I sleep all night and I work all day.')
@@ -905,7 +905,7 @@ print_lyrics()
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def repeat_lyrics():
     print_lyrics()
     print_lyrics()
@@ -921,14 +921,14 @@ I sleep all night and I work all day.
                 <section>
                     <h3>Parameters and arguments</h3>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def print_twice(bruce): #bruce is a parameter
     print(bruce)
     print(bruce)
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> print_twice('Spam')
 Spam
 Spam
@@ -938,7 +938,7 @@ Spam
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 >>> michael = 'Eric, the half a bee.'
 >>> print_twice(michael)
 Eric, the half a bee.
@@ -954,7 +954,7 @@ Eric, the half a bee.
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def describe_pet(animal_type, pet_name):
     print("\nI have a " + animal_type + ".")
     print("My " + animal_type + "'s name is " + pet_name.title() + ".")
@@ -975,7 +975,7 @@ My dog's name is Willie.
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def describe_pet(animal_type, pet_name):
     print("\nI have a " + animal_type + ".")
     print("My " + animal_type + "'s name is " + pet_name.title() + ".")
@@ -994,7 +994,7 @@ My harry's name is Hamster.
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def describe_pet(animal_type, pet_name):
     print("\nI have a " + animal_type + ".")
     print("My " + animal_type + "'s name is " + pet_name.title() + ".")
@@ -1003,7 +1003,7 @@ describe_pet(animal_type='hamster', pet_name='harry')
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 describe_pet(animal_type='hamster', pet_name='harry')
 describe_pet(pet_name='harry', animal_type='hamster')
 </code></pre>
@@ -1016,7 +1016,7 @@ describe_pet(pet_name='harry', animal_type='hamster')
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def describe_pet(pet_name, animal_type='dog'): #The second parameter still works.
     print("\nI have a " + animal_type + ".")
     print("My " + animal_type + "'s name is " + pet_name.title() + ".")
@@ -1036,7 +1036,7 @@ describe_pet(pet_name='harry', animal_type='hamster') #The default value has bee
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 # A dog named Willie.
 describe_pet('willie')
 describe_pet(pet_name='willie')
@@ -1060,7 +1060,7 @@ describe_pet(animal_type='hamster', pet_name='harry')
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def addtwo(a, b):
     added = a + b
     return added # if only return, then it will return None.
@@ -1078,7 +1078,7 @@ print(x)
                 <section>
                     <h3>Return Values</h3>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def get_formatted_name(first_name, last_name):
     full_name = first_name + ' ' + last_name
     return full_name.title()
@@ -1095,7 +1095,7 @@ Jimi Hendrix
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def get_formatted_name(first_name, middle_name, last_name):
     full_name = first_name + ' ' + middle_name + ' ' + last_name
     return full_name.title()
@@ -1105,7 +1105,7 @@ print(musician)
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def get_formatted_name(first_name, last_name, middle_name=''):
     if middle_name:
         full_name = first_name + ' ' + middle_name + ' ' + last_name
@@ -1128,7 +1128,7 @@ print(musician)
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def build_person(first_name, last_name):
     person = {'first': first_name, 'last': last_name}
     return person
@@ -1147,7 +1147,7 @@ print(musician)
                         </li>
                     </ul>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def get_formatted_name(first_name, last_name):
     full_name = first_name + ' ' + last_name
     return full_name.title()
@@ -1161,7 +1161,7 @@ while True:
 </code></pre>
                     </div>
                     <div class="fragment">
-                        <pre><code class="hljs" data-trim contenteditable>
+                        <pre><code class="line-numbers" data-trim contenteditable>
 def get_formatted_name(first_name, last_name):
     full_name = first_name + ' ' + last_name
     return full_name.title()
@@ -1183,7 +1183,6 @@ while True:
                     </div>
                 </section>
             </section>
-            
             <section>
                 <section data-background="#2c3e50" style="color: white; text-align: left;">
                     <h2 style="color: white">Summary</h2>
@@ -1334,7 +1333,8 @@ while True:
             { src: 'plugin/notes/notes.js', async: true },
 
             // MathJax
-            { src: 'plugin/math/math.js', async: true }
+            { src: 'plugin/math/math.js', async: true },
+            { src: 'plugin/line-numbers/line-numbers.js' }
         ]
     });
     </script>
